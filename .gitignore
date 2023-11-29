@@ -41,3 +41,4 @@ train/config.py
 
 # Twitter data archive
 train/data/tweets.js
+train/finetune.py
