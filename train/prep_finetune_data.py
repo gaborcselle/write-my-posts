@@ -68,7 +68,7 @@ def main():
     #   They are replies and might not be useful for the finetune.
 
     # tag all the tweets
-    tagged_tweets = tag_all_tweets(tweet_text_list[:1000])
+    tagged_tweets = tag_all_tweets(tweet_text_list)
 
     # make example conversations for each tweet
     examples_convos = []
