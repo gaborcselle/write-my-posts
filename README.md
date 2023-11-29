@@ -11,7 +11,7 @@ You can try the end result at [write-my-posts.gaborcselle.com](https://write-my-
 2. *Viewership:* We had a total of 16 viewers overall and no chats, confirming that this is not great content.
 3. *Data procurement:* The approach of using my downloadable Twitter archive did work, that was surprisingly easy to reformat into training / test data. (Grr Twitter for not providing a free Twitter read API.)
 4. *Finetune on small amounts of data:* The overall approach of finetuning GPT-3.5 to match my Twitter tone did work, even with a small sample of 200 tweets train / 40 tweets validation we got to a pretty good point in matching my tone, even if the content made no sense.
-5. *Finetune on large amounts of data:* TBD, the model with larger amounts of data is still finetuning. (Will update this when we have it).   
+5. *Finetune on large amounts of data:* I then trained a model on all my tweets that weren't replies (~4000 train/~500 validation) and it's a little bit better but not phenomenally so. The posts it produces are a bit more cohesive than the smaller model.
 
 # Objective
 Write Twitter / X / Mastodon / Threads posts for me, in my voice.
