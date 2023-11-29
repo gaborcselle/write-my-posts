@@ -43,3 +43,6 @@ train/config.py
 train/data/tweets.js
 train/finetune.py
 train/__pycache__/config.cpython-311.pyc
+train/data/finetune_test.jsonl
+.gitignore
+train/data/finetune_train.jsonl
