@@ -15,6 +15,7 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
 
   // Ask OpenAI for a streaming chat completion given the prompt
+  // TODO: Add your finetuned model ID below into 'model' field
   const response = await openai.chat.completions.create({
     model: 'ft:gpt-3.5-turbo-0613:personal:wmp-no-replies:8QKbNwAj',
     stream: true,
