@@ -18,6 +18,8 @@
 # misc
 .DS_Store
 *.pem
+package-lock.json
+
 
 # debug
 npm-debug.log*
@@ -36,3 +38,6 @@ next-env.d.ts
 
 # Python secret vars
 train/config.py
+
+# Twitter data archive
+train/data/tweets.js
