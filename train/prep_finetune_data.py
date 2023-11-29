@@ -75,20 +75,17 @@ def main():
         entities_text = ', '.join(entities)
         examples_convos.append(prepare_example_conversation(entities_text, tweet_text))
 
-    # pretty print the first 3 example conversations
-    pprint.pprint(examples_convos[:3])
-
     # train 80 / test 20 split
     examples_count = len(examples_convos)
     train_count = int(examples_count * 0.8)
 
     # split the examples into train and test
     train_examples = examples_convos[:train_count]
-    test_examples = examples_convos[train_count:]
+    validation_examples = examples_convos[train_count:]
 
     # write the train and test examples to jsonl files
-    write_jsonl(common.TRAINING_FILE_NAME, 'data/finetune_train.jsonl')
-    write_jsonl(common.VALIDATION_FILE_NAME, 'data/finetune_test.jsonl')
+    write_jsonl(train_examples, common.TRAINING_FILE_NAME)
+    write_jsonl(validation_examples, common.VALIDATION_FILE_NAME)
 
 if __name__ == "__main__":
     main()
