@@ -9,7 +9,7 @@ export default function Chat() {
       {messages.length > 0
         ? messages.map(m => (
             <div key={m.id} className="whitespace-pre-wrap">
-              {m.role === 'user' ? 'User: ' : 'AI: '}
+              <b>{m.role === 'user' ? 'Topic: ' : 'Post: '}</b>
               {m.content}
             </div>
           ))
@@ -19,7 +19,7 @@ export default function Chat() {
         <input
           className="fixed bottom-0 w-full max-w-md p-2 mb-8 border border-gray-300 rounded shadow-xl"
           value={input}
-          placeholder="Say something..."
+          placeholder="Give me a topic and I'll write a post about it as @gabor"
           onChange={handleInputChange}
         />
       </form>
