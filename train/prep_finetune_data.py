@@ -1,5 +1,6 @@
 import openai
 import config
+import common
 import json
 import tweetnlp
 import pprint
@@ -86,8 +87,8 @@ def main():
     test_examples = examples_convos[train_count:]
 
     # write the train and test examples to jsonl files
-    write_jsonl(train_examples, 'data/finetune_train.jsonl')
-    write_jsonl(test_examples, 'data/finetune_test.jsonl')
+    write_jsonl(common.TRAINING_FILE_NAME, 'data/finetune_train.jsonl')
+    write_jsonl(common.VALIDATION_FILE_NAME, 'data/finetune_test.jsonl')
 
 if __name__ == "__main__":
     main()
