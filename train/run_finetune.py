@@ -4,9 +4,6 @@ import common
 
 openai.api_key = config.OPENAI_API_KEY
 
-TRAINING_FILE_NAME = "data/finetune_train.jsonl"
-VALIDATION_FILE_NAME = "data/finetune_validation.jsonl"
-
 with open(common.TRAINING_FILE_NAME, "rb") as training_fd:
     training_response = openai.files.create(
         file=training_fd, purpose="fine-tune"
