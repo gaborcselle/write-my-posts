@@ -4,10 +4,10 @@ Write Twitter / X / Mastodon / Threads style posts in my voice.
 *Watch me code this up on [YouTube]([https://www.youtube.com/LINKHERE](https://www.youtube.com/watch?v=51DWARJckL4))! I'm intending to start this project at 9 am PT on Nov 29, 2023, and I have set myself a deadline of 12 noon PT: 3 hours total.*
 
 # Objective
-Write Twitter / X / Mastodon / Threads replies for me, in my voice.
+Write Twitter / X / Mastodon / Threads posts for me, in my voice.
 
 # How
-Download all my previous tweets, and finetune GPT-3.5-turbo on it. Then build a simple web app to generate replies. I'll use topics as the prompt.
+Download all my previous tweets, and finetune GPT-3.5-turbo on it. Then build a simple web app to generate posts. I'll use topics as the prompt.
 
 # Motivation
 We did a crappy version of AI generated posts with our now-defunct social platform Pebble. We used few-shot prompting, and our users complained that the replies didn't sound like them at all. It let to an event we called "Ideageddon" - the largest user revolt we ever had. You can read more about the user revolt at [blog post](https://medium.com/gabor/from-t2-to-pebble-the-rise-challenges-and-lessons-of-building-a-twitter-alternative-553652f1d1e7).
