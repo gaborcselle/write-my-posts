@@ -3,6 +3,16 @@ Write Twitter / X / Mastodon / Threads style posts in my voice.
 
 *Watch me code this up on [YouTube](https://www.youtube.com/watch?v=51DWARJckL4)! I'm intending to start this project at 9 am PT on Nov 29, 2023, and I have set myself a deadline of 12 noon PT: 3 hours total.*
 
+# Learnings
+
+You can try the end result at [write-my-posts.gaborcselle.com](https://write-my-posts.gaborcselle.com/). You can have GPT write posts in your voice by following the "How to Run" section below.
+
+1. *Content:* 25% of the total time of the livestream was watching the OpenAI finetune console. That is *not* amazing content.
+2. *Viewership:* We had a total of 16 viewers overall and no chats, confirming that this is not great content.
+3. *Data procurement:* The approach of using my downloadable Twitter archive did work, that was surprisingly easy to reformat into training / test data. (Grr Twitter for not providing a free Twitter read API.)
+4. *Finetune on small amounts of data:* The overall approach of finetuning GPT-3.5 to match my Twitter tone did work, even with a small sample of 200 tweets train / 40 tweets validation we got to a pretty good point in matching my tone, even if the content made no sense.
+5. *Finetune on large amounts of data:* TBD, the model with larger amounts of data is still finetuning. (Will update this when we have it).   
+
 # Objective
 Write Twitter / X / Mastodon / Threads posts for me, in my voice.
 
@@ -49,7 +59,7 @@ I'm intending to start this project at 9 am PT on Nov 29, and I have set myself 
 - `app/` - contains the Next.js app to interactively generate posts, deployed to Vercel at [https://write-my-posts.gaborcselle.com/](https://write-my-posts.gaborcselle.com/)
 - `train/` - Python code to fine-tune GPT-3.5-turbo on my tweets
 
-# How to run
+# How to Run
 (This is a work in progress, I'll complete this after the livestream.)
 If you want to try this yourself: 
 
