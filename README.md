@@ -1,7 +1,7 @@
 # write-my-posts
 Write Twitter / X / Mastodon / Threads style posts in my voice.
 
-*Watch me code this up on [YouTube](https://www.youtube.com/LINKHERE)! I'm intending to start this project at 9 am PT on Nov 29, 2023, and I have set myself a deadline of 12 noon PT: 3 hours total.*
+*Watch me code this up on [YouTube]([https://www.youtube.com/LINKHERE](https://www.youtube.com/watch?v=51DWARJckL4))! I'm intending to start this project at 9 am PT on Nov 29, 2023, and I have set myself a deadline of 12 noon PT: 3 hours total.*
 
 # Objective
 Write Twitter / X / Mastodon / Threads replies for me, in my voice.
