@@ -64,8 +64,11 @@ def main():
     # and put them into a list
     tweet_text_list = [tweet['tweet']['full_text'] for tweet in tweets]
 
+    # TODO(gabor): Open question: drop tweets starting with @?
+    #   They are replies and might not be useful for the finetune.
+
     # tag all the tweets
-    tagged_tweets = tag_all_tweets(tweet_text_list)
+    tagged_tweets = tag_all_tweets(tweet_text_list[:1000])
 
     # make example conversations for each tweet
     examples_convos = []
