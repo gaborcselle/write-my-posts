@@ -6,6 +6,7 @@ from transformers import XLMRobertaTokenizer, XLMRobertaModel, TrainingArguments
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import os
+from tqdm import tqdm
 import torch.nn as nn
 
 tokenizer = XLMRobertaTokenizer.from_pretrained('xlm-roberta-base')
@@ -17,8 +18,8 @@ def embed_text(text):
     return outputs.last_hidden_state.mean(dim=1).detach().numpy()
 
 # Check if embeddings.pkl file exists
-if os.path.exists('embeddings.pkl'):
-    df = pd.read_pickle('embeddings.pkl')
+if os.path.exists('like_predictor_data.pkl'):
+    df = pd.read_pickle('like_predictor_data.pkl')
 else:
     # Load your tweets.js file
     with open('data/tweets.js', 'r') as f:
@@ -32,19 +33,36 @@ else:
     tweets_data = []
     for tweet in data:
         created_at = datetime.strptime(tweet['tweet']['created_at'], '%a %b %d %H:%M:%S +0000 %Y')
+        year = created_at.year
+        month = created_at.month
+        day = created_at.day
+        hour = created_at.hour
+        minute = created_at.minute
         timestamp = created_at.timestamp()
         tweets_data.append({
             'full_text': tweet['tweet']['full_text'],
             'timestamp': timestamp,
             'lang': tweet['tweet']['lang'],
-            'favorite_count': tweet['tweet']['favorite_count']
+            'like_count': tweet['tweet']['favorite_count'],
+            'year': year,
+            'month': month,
+            'day': day,
+            'hour': hour,
+            'minute': minute            
         })
 
     df = pd.DataFrame(tweets_data)
     # Calculate and store the embeddings
-    df['text_embedding'] = df['full_text'].apply(embed_text)
-    df.to_pickle('embeddings.pkl')
+    print('Calculating embeddings...')
+    
+    print(df.head())
 
+    # apply embed_text function to the full_text column and show a progress bar
+    tqdm.pandas()
+    df['full_text_embedding'] = df['full_text'].progress_apply(embed_text)
+    
+    df.to_pickle('like_predictor_data.pkl')
+    
 # Define the model
 class TweetLikePredictor(nn.Module):
     def __init__(self):
@@ -86,13 +104,4 @@ trainer.train()
 model.save_pretrained("./models")
 tokenizer.save_pretrained("./models")
 
-# Push model to Hugging Face Hub (optional)
-from huggingface_hub import push_to_hub
-
-push_to_hub(
-    repo_url="https://huggingface.co/gaborcselle/tweet-likes-predictor",
-    dir_path="./models",
-    use_auth=True,
-)
-
-print("Model trained and saved successfully!")
+model.push_to_hub('gaborcselle/tweet-likes-predictor')
