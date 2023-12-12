@@ -43,3 +43,4 @@ train/config.py
 train/finetune.py
 train/data/*
 train/__pycache__
+train/embeddings.pkl
