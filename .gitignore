@@ -44,3 +44,7 @@ train/finetune.py
 train/data/*
 train/__pycache__
 train/embeddings.pkl
+train/like_predictor_data.pkl
+train/logs/*
+train/models/runs/*
+train/tweet_like_predictor_od/*
